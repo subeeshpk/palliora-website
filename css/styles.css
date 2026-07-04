@@ -9,8 +9,20 @@ html { scroll-behavior: smooth; }
 body, h1, h2, h3, h4, p, ul, figure { margin: 0; }
 ul { padding: 0; list-style: none; }
 img { max-width: 100%; display: block; }
-a { color: inherit; text-decoration: none; }
-button { font: inherit; cursor: pointer; background: none; border: none; }
+a { color: inherit; text-decoration: none; overflow-wrap: break-word; word-break: break-word; }
+p, li { overflow-wrap: break-word; }
+button {
+  font: inherit;
+  cursor: pointer;
+  background: none;
+  border: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+a, button { -webkit-tap-highlight-color: transparent; }
+
+/* Offset anchor scroll targets so content isn't hidden under the sticky header */
+[id] { scroll-margin-top: 90px; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -109,8 +121,12 @@ body {
   top: 0;
   z-index: 100;
   background: rgba(250, 247, 240, 0.88);
+  -webkit-backdrop-filter: saturate(180%) blur(10px);
   backdrop-filter: saturate(180%) blur(10px);
   border-bottom: 1px solid var(--color-border);
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .site-header { background: var(--cream-100); }
 }
 .header-inner {
   display: flex;
@@ -313,7 +329,7 @@ body {
 /* ---------- Get Involved ---------- */
 .involved-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 1.3fr 1fr;
   gap: var(--space-5);
   align-items: start;
 }
@@ -333,19 +349,26 @@ body {
 }
 .bank-row {
   display: flex;
-  justify-content: space-between;
-  gap: var(--space-3);
-  padding-block: 0.5rem;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding-block: 0.65rem;
   border-bottom: 1px dashed var(--color-border);
-  font-size: 0.88rem;
+  font-size: 0.9rem;
 }
 .bank-row:last-of-type { border-bottom: none; }
-.bank-label { color: var(--color-text-muted); flex-shrink: 0; }
+.bank-label {
+  color: var(--color-text-muted);
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+}
 .bank-value {
   font-weight: 700;
-  text-align: right;
+  text-align: left;
   color: var(--color-primary-strong);
   cursor: pointer;
+  overflow-wrap: break-word;
   word-break: break-word;
 }
 .bank-value:hover { color: var(--color-accent-strong); }
@@ -460,6 +483,4 @@ body {
   .hero-cta { flex-direction: column; align-items: stretch; }
   .hero-cta .btn { justify-content: center; }
   .footer-cols { grid-template-columns: 1fr; }
-  .bank-row { flex-direction: column; gap: 0.15rem; }
-  .bank-value { text-align: left; }
 }
