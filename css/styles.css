@@ -142,7 +142,19 @@ body {
   justify-content: space-between;
   height: 76px;
 }
-.brand-logo { height: 34px; width: auto; }
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+.brand-logo { height: 46px; width: 46px; object-fit: contain; }
+.brand-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--color-primary-strong);
+  white-space: nowrap;
+}
 
 .nav { display: flex; align-items: center; gap: var(--space-6); }
 .nav-list { display: flex; gap: var(--space-5); }
@@ -441,7 +453,9 @@ body {
 /* ---------- Footer ---------- */
 .site-footer { background: var(--navy-900); color: var(--cream-100); padding-top: var(--space-7); }
 .footer-inner { display: grid; grid-template-columns: 1.2fr 2fr; gap: var(--space-6); padding-bottom: var(--space-6); }
-.footer-logo { height: 32px; filter: brightness(0) invert(1); margin-bottom: var(--space-3); }
+.footer-brand-row { display: flex; align-items: center; gap: 0.65rem; margin-bottom: var(--space-3); }
+.footer-logo { height: 46px; width: 46px; object-fit: contain; filter: brightness(0) invert(1); }
+.footer-brand-name { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; color: var(--cream-100); }
 .footer-tagline { color: rgba(250, 247, 240, 0.65); max-width: 260px; }
 .footer-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); }
 .footer-col h4 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold-500); margin-bottom: var(--space-3); }
@@ -529,10 +543,19 @@ body {
 }
 
 @media (max-width: 560px) {
+  .brand-logo { height: 38px; width: 38px; }
+  .brand-name { font-size: 0.9rem; }
   .services-grid { grid-template-columns: 1fr; }
   .programs-grid { grid-template-columns: 1fr; }
   .program-item { border-right: none !important; border-bottom: 1px solid var(--color-border); padding-bottom: var(--space-3); }
   .hero-cta { flex-direction: column; align-items: stretch; }
   .hero-cta .btn { justify-content: center; }
   .footer-cols { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 400px) {
+  /* Keep just the logo mark on the smallest phones so it never crowds the
+     hamburger button; the accessible name still comes from the link's
+     aria-label. */
+  .brand-name { display: none; }
 }
