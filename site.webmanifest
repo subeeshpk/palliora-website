@@ -1,0 +1,13 @@
+{
+  "name": "Palliora Care Foundation",
+  "short_name": "Palliora",
+  "icons": [
+    { "src": "images/icons/favicon-32.png", "sizes": "32x32", "type": "image/png" },
+    { "src": "images/icons/favicon-180.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "images/icons/favicon-512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "theme_color": "#1e2749",
+  "background_color": "#faf7f0",
+  "display": "standalone",
+  "start_url": "/"
+}

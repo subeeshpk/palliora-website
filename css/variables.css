@@ -1,0 +1,85 @@
+/* ==========================================================================
+   Palliora Care Foundation — Design Tokens
+   Palette derived from the Palliora logo: deep navy, royal purple, warm gold,
+   set against a soft cream background for a premium, trustworthy feel.
+   ========================================================================== */
+
+:root {
+  /* --- Core palette --- */
+  --navy-900: #171f3d;
+  --navy-800: #1e2749;
+  --navy-700: #2c3968;
+  --navy-600: #3a4a86;
+
+  --purple-700: #5d4d8a;
+  --purple-600: #6b5b95;
+  --purple-500: #7a63a8;
+  --purple-400: #8b6bb0;
+  --purple-100: #ece6f5;
+
+  --gold-600: #b8823f;
+  --gold-500: #d9a566;
+  --gold-400: #e0a458;
+  --gold-100: #f7e6c9;
+
+  --cream-100: #faf7f0;
+  --cream-200: #f4efe4;
+  --cream-300: #ece5d5;
+
+  --ink: #23283a;
+  --ink-soft: #565b70;
+  --white: #ffffff;
+
+  /* --- Semantic roles --- */
+  --color-bg: var(--cream-100);
+  --color-bg-alt: var(--cream-200);
+  --color-surface: var(--white);
+  --color-text: var(--ink);
+  --color-text-muted: var(--ink-soft);
+  --color-primary: var(--navy-800);
+  --color-primary-strong: var(--navy-900);
+  --color-accent: var(--purple-600);
+  --color-accent-strong: var(--purple-700);
+  --color-gold: var(--gold-500);
+  --color-border: rgba(30, 39, 73, 0.12);
+
+  --color-dark-bg: var(--navy-800);
+  --color-dark-bg-alt: var(--navy-900);
+  --color-dark-text: var(--cream-100);
+  --color-dark-text-muted: rgba(250, 247, 240, 0.72);
+  --color-dark-border: rgba(250, 247, 240, 0.14);
+
+  /* --- Typography --- */
+  --font-display: Georgia, "Times New Roman", "Noto Serif", serif;
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  --fs-h1: clamp(2.4rem, 4.5vw, 4rem);
+  --fs-h2: clamp(1.9rem, 3.2vw, 2.75rem);
+  --fs-h3: clamp(1.35rem, 2vw, 1.75rem);
+  --fs-lead: clamp(1.05rem, 1.3vw, 1.25rem);
+  --fs-body: 1rem;
+  --fs-small: 0.875rem;
+  --fs-eyebrow: 0.8rem;
+
+  /* --- Spacing scale --- */
+  --space-1: 0.5rem;
+  --space-2: 0.75rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2rem;
+  --space-6: 3rem;
+  --space-7: 4.5rem;
+  --space-8: 6rem;
+
+  /* --- Layout --- */
+  --container-max: 1180px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 24px;
+  --border-w: 1px;
+
+  /* --- Motion --- */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 0.2s;
+  --dur-med: 0.45s;
+}
