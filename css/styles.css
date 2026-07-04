@@ -9,7 +9,7 @@ html { scroll-behavior: smooth; }
 body, h1, h2, h3, h4, p, ul, figure { margin: 0; }
 ul { padding: 0; list-style: none; }
 img { max-width: 100%; display: block; }
-a { color: inherit; text-decoration: none; overflow-wrap: break-word; word-break: break-word; }
+a { color: inherit; text-decoration: none; }
 p, li { overflow-wrap: break-word; }
 button {
   font: inherit;
@@ -114,6 +114,14 @@ body {
   transition: border-color var(--dur-fast) var(--ease);
 }
 .link-arrow:hover { border-color: currentColor; }
+
+.link-row {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: var(--space-3);
+}
+.link-row .link-arrow { margin-top: 0; }
 
 /* ---------- Header ---------- */
 .site-header {
@@ -396,12 +404,34 @@ body {
 /* ---------- Contact ---------- */
 .contact-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-5);
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6) var(--space-5);
 }
 .contact-label { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold-600); font-weight: 700; margin-bottom: 0.75rem; }
-.contact-col p { color: var(--color-text-muted); margin-bottom: 0.4rem; }
+.contact-col p {
+  color: var(--color-text-muted);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.contact-col a { white-space: nowrap; }
 .contact-col a:hover { color: var(--color-accent-strong); }
+
+.copy-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+  transition: background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+}
+.copy-icon-btn:hover { background: var(--color-border); color: var(--color-accent-strong); }
+.copy-icon-btn svg { width: 15px; height: 15px; }
 .social-list li { margin-bottom: 0.6rem; }
 .social-list a { display: flex; align-items: center; gap: 0.6rem; color: var(--color-text-muted); }
 .social-list a:hover { color: var(--color-accent-strong); }
@@ -473,12 +503,13 @@ body {
   .vision-mission-grid { grid-template-columns: 1fr; }
   .services-grid { grid-template-columns: repeat(2, 1fr); }
   .involved-grid { grid-template-columns: 1fr; }
-  .contact-grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-6); }
   .footer-inner { grid-template-columns: 1fr; }
   .footer-cols { grid-template-columns: repeat(3, 1fr); }
-}
 
-@media (max-width: 860px) {
+  /* Switch to the mobile hamburger nav here too: the full desktop nav
+     (logo + 5 links + Donate button) needs ~920px to fit without crowding,
+     so waiting until a narrower breakpoint left a squeeze zone on small
+     laptops/tablets. */
   .nav { position: fixed; inset: 76px 0 auto 0; flex-direction: column; align-items: stretch; gap: 0; background: var(--cream-100); border-bottom: 1px solid var(--color-border); padding: var(--space-4) var(--space-5); transform: translateY(-8px); opacity: 0; visibility: hidden; transition: all var(--dur-fast) var(--ease); }
   .nav.is-open { transform: translateY(0); opacity: 1; visibility: visible; }
   .nav-list { flex-direction: column; gap: 0; }
@@ -486,7 +517,9 @@ body {
   .nav-link { display: block; padding: var(--space-3) 0; }
   .nav-cta { margin-top: var(--space-3); align-self: flex-start; }
   .nav-toggle { display: flex; }
+}
 
+@media (max-width: 860px) {
   .info-strip { grid-template-columns: 1fr; gap: var(--space-4); }
   .programs-grid { grid-template-columns: repeat(2, 1fr); }
   .program-item:nth-child(2n) { border-right: none; }

@@ -156,6 +156,19 @@
     });
   });
 
+  /* Copy-to-clipboard fallback for email/mailto links (in case no mail
+     client is configured on the visitor's device/browser) */
+  doc.querySelectorAll(".copy-icon-btn").forEach(function (btn) {
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      var value = btn.getAttribute("data-copy");
+      if (!value) return;
+      copyText(value).then(function () {
+        showToast("Copied: " + value);
+      });
+    });
+  });
+
   var copyAllBtn = doc.getElementById("copyBankDetails");
   if (copyAllBtn) {
     copyAllBtn.addEventListener("click", function () {
