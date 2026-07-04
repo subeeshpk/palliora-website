@@ -301,6 +301,25 @@ body {
 .service-title { font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--white); }
 .service-sub { font-size: 0.9rem; color: var(--color-dark-text-muted); }
 
+.service-list { display: flex; flex-direction: column; gap: 0.4rem; }
+.service-list li {
+  position: relative;
+  padding-left: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--color-dark-text-muted);
+}
+.service-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--gold-500);
+}
+
 /* ---------- Programs ---------- */
 .programs-grid {
   display: grid;
